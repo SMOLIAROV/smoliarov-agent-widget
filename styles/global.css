@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --chat-background: oklch(0.04 0 0);
+  --chat-foreground: oklch(0.96 0 0);
+
+  --chat-panel: oklch(0.07 0 0);
+  --chat-surface: oklch(0.11 0 0);
+  --chat-border: oklch(0.22 0 0);
+
+  --chat-muted: oklch(0.56 0 0);
+
+  --chat-accent: oklch(0.76 0.12 115);
+  --chat-accent-foreground: oklch(0.12 0.03 115);
+
+  --chat-user: oklch(0.76 0.12 115);
+  --chat-user-foreground: oklch(0.12 0.03 115);
+
+  --chat-assistant: oklch(0.11 0 0);
+  --chat-assistant-foreground: oklch(0.94 0 0);
+
+  --chat-radius: 0.75rem;
+}
+
+@theme inline {
+  --color-chat-background: var(--chat-background);
+  --color-chat-foreground: var(--chat-foreground);
+
+  --color-chat-panel: var(--chat-panel);
+  --color-chat-surface: var(--chat-surface);
+  --color-chat-border: var(--chat-border);
+
+  --color-chat-muted: var(--chat-muted);
+
+  --color-chat-accent: var(--chat-accent);
+  --color-chat-accent-foreground: var(--chat-accent-foreground);
+
+  --color-chat-user: var(--chat-user);
+  --color-chat-user-foreground: var(--chat-user-foreground);
+
+  --color-chat-assistant: var(--chat-assistant);
+  --color-chat-assistant-foreground: var(--chat-assistant-foreground);
+
+  --radius-chat: var(--chat-radius);
+}
+
+/* Chat scrollbar */
+.chat-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--chat-border) transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--chat-border);
+  border-radius: 9999px;
+}
+
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--chat-muted);
+}
