@@ -1,4 +1,4 @@
-export interface WidgetButtonProps{
-    isOpen: boolean,
-    onClick: () => void
+export interface WidgetButtonProps {
+  isOpen: boolean
+  onClick: () => void
 }

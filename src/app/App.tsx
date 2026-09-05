@@ -1,6 +1,5 @@
-import { Widget } from "../widget/Widget";
+import { Widget } from "../widget/Widget"
 
-export default function App(){
-    return <Widget />
+export default function App() {
+  return <Widget />
 }
-
