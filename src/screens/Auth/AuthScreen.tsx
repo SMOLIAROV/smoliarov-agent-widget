@@ -1,13 +1,11 @@
 import { WidgetHeader } from "../../widget/WidgetHeader"
 
 export function AuthScreen() {
-  return (
-    <>
-      <WidgetHeader>
-        <p className="text-white">Custom header for auth screen</p>
-      </WidgetHeader>
+    return (
+        <>
+            <WidgetHeader />
 
-      <p className="text-white">Auth screen</p>
-    </>
-  )
+            <p className="text-white">Auth screen</p>
+        </>
+    )
 }

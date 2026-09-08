@@ -3,5 +3,5 @@ import { defineConfig } from "vite"
 import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  plugins: [preact(), tailwindcss()],
+    plugins: [preact(), tailwindcss()],
 })

@@ -2,11 +2,11 @@ import js from "@eslint/js"
 import tseslint from "typescript-eslint"
 
 export default tseslint.config(
-  {
-    ignores: ["dist", "dist-ssr", "node_modules"],
-  },
+    {
+        ignores: ["dist", "dist-ssr", "node_modules"],
+    },
 
-  js.configs.recommended,
+    js.configs.recommended,
 
-  ...tseslint.configs.recommended,
+    ...tseslint.configs.recommended,
 )

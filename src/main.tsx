@@ -4,8 +4,8 @@ import App from "./app/App"
 import "../styles/global.css"
 
 render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById("root")!,
+    <StrictMode>
+        <App />
+    </StrictMode>,
+    document.getElementById("root")!,
 )
