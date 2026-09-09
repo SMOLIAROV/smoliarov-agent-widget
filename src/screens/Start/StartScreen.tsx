@@ -1,4 +1,4 @@
-import { WidgetHeader } from "../../widget/WidgetHeader"
+import { WidgetHeader } from "@/widget/WidgetHeader"
 import type { ScreenProps } from "../types"
 import { StartHero } from "./StartHero"
 import { StartActions } from "./StartActions"

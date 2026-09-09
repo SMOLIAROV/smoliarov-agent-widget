@@ -1,10 +1,13 @@
 import { Check } from "lucide-preact"
 import type { PoliciesCheckboxProps } from "./types"
+import { useDict } from "@/i18n/useDict"
 
 export function PoliciesCheckbox({
     isChecked,
     onChange,
 }: PoliciesCheckboxProps) {
+    const dict = useDict()
+
     return (
         <label className="text-chat-muted flex cursor-pointer items-start gap-3 text-xs leading-5 select-none">
             <input
@@ -28,19 +31,19 @@ export function PoliciesCheckbox({
             </span>
 
             <span className="whitespace-normal">
-                Я принимаю{" "}
+                {dict.start.policies.prefix}{" "}
                 <a
                     href="#privacy"
                     className="text-chat-foreground underline underline-offset-2"
                 >
-                    Политику конфиденциальности
+                    {dict.start.policies.privacy}
                 </a>{" "}
-                и{" "}
+                {dict.start.policies.conjunction}{" "}
                 <a
                     href="#terms"
                     className="text-chat-foreground underline underline-offset-2"
                 >
-                    Пользовательское соглашение
+                    {dict.start.policies.terms}
                 </a>
             </span>
         </label>

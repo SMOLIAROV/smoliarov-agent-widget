@@ -1,6 +1,6 @@
 import { MessageCircle, X } from "lucide-preact"
 import type { WidgetButtonProps } from "./types"
-import { Button } from "../shared/components/Button/Button"
+import { Button } from "@/shared/components/Button/Button"
 
 export function WidgetButton({ isOpen, onClick }: WidgetButtonProps) {
     return (

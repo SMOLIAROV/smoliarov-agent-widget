@@ -1,9 +1,11 @@
 import { Bot, X } from "lucide-preact"
 import type { WidgetHeaderProps } from "./types"
 import { useWidget } from "./hooks/useWidget"
-import { Button } from "../shared/components/Button/Button"
+import { Button } from "@/shared/components/Button/Button"
+import { useDict } from "@/i18n/useDict"
 
 export function WidgetHeader({ children }: WidgetHeaderProps) {
+    const dict = useDict()
     const { close } = useWidget()
 
     return (
@@ -21,10 +23,10 @@ export function WidgetHeader({ children }: WidgetHeaderProps) {
 
                         <div>
                             <p className="text-chat-foreground text-sm font-medium">
-                                SMOLIAROV Chat Agent
+                                {dict.header.title}
                             </p>
                             <p className="text-chat-muted font-mono text-[10px] tracking-[0.16em] uppercase">
-                                онлайн · ответит быстро
+                                {dict.header.status}
                             </p>
                         </div>
                     </>

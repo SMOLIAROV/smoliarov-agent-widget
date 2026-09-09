@@ -1,4 +1,4 @@
-import { WidgetHeader } from "../../widget/WidgetHeader"
+import { WidgetHeader } from "@/widget/WidgetHeader"
 
 export function AuthScreen() {
     return (

@@ -1,6 +1,6 @@
-import { AuthScreen } from "../screens/Auth/AuthScreen"
-import { ChatScreen } from "../screens/Chat/ChatScreen"
-import { StartScreen } from "../screens/Start/StartScreen"
+import { AuthScreen } from "@/screens/Auth/AuthScreen"
+import { ChatScreen } from "@/screens/Chat/ChatScreen"
+import { StartScreen } from "@/screens/Start/StartScreen"
 
 export const FLOW_SCREEN = {
     START: "start",

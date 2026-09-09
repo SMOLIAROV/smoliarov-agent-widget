@@ -1,4 +1,4 @@
-import { Flow } from "../flow/Flow"
+import { Flow } from "@/flow/Flow"
 
 export function WidgetPanel() {
     return (

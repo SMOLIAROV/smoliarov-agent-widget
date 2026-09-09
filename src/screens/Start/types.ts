@@ -1,4 +1,4 @@
-import type { FlowScreen } from "../../flow/constants"
+import type { FlowScreen } from "@/flow/constants"
 
 export interface StartActionsProps {
     navigate: (screen: FlowScreen) => void
