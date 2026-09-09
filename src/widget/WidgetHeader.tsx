@@ -2,7 +2,7 @@ import { Bot, X } from "lucide-preact"
 import type { WidgetHeaderProps } from "./types"
 import { useWidget } from "./hooks/useWidget"
 import { Button } from "@/shared/components/Button/Button"
-import { useDict } from "@/i18n/useDict"
+import { useDict } from "@/i18n/hooks/useDict"
 
 export function WidgetHeader({ children }: WidgetHeaderProps) {
     const dict = useDict()

@@ -1,6 +1,6 @@
 import { Check } from "lucide-preact"
 import type { PoliciesCheckboxProps } from "./types"
-import { useDict } from "@/i18n/useDict"
+import { useDict } from "@/i18n/hooks/useDict"
 
 export function PoliciesCheckbox({
     isChecked,

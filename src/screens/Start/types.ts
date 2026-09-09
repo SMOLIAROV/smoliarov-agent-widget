@@ -1,5 +1,8 @@
-import type { FlowScreen } from "@/flow/constants"
+import type { MouseEventHandler, TargetedEvent } from "preact"
 
 export interface StartActionsProps {
-    navigate: (screen: FlowScreen) => void
+    isPolicyAccepted: boolean
+    onPolicyChange: (_event: TargetedEvent<HTMLInputElement, Event>) => void
+    onLogin: MouseEventHandler<HTMLButtonElement>
+    onContinueAnonymously: MouseEventHandler<HTMLButtonElement>
 }

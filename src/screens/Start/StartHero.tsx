@@ -1,5 +1,5 @@
 import { Sparkles } from "lucide-preact"
-import { useDict } from "@/i18n/useDict"
+import { useDict } from "@/i18n/hooks/useDict"
 
 export function StartHero() {
     const dict = useDict()
