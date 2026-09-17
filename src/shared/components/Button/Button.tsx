@@ -1,4 +1,5 @@
 import type { ButtonProps } from "./types"
+import { useButtonLoading } from "./useButtonLoading"
 
 export function Button({
     children,
@@ -7,14 +8,17 @@ export function Button({
     className,
     type = "button",
 }: ButtonProps) {
+    const { isLoading, handleClick } = useButtonLoading(onClick)
+
     return (
         <button
-            onClick={onClick}
-            disabled={disabled}
+            onClick={handleClick}
+            disabled={disabled || isLoading}
+            aria-busy={isLoading}
             className={className}
             type={type}
         >
-            {children}
+            {isLoading ? "Loading ..." : children}
         </button>
     )
 }

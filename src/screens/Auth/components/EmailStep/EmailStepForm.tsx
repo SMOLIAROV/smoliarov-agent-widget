@@ -1,6 +1,5 @@
 import { Button } from "@/shared/components/Button/Button"
 import { useState } from "preact/hooks"
-import type { JSX } from "preact/jsx-runtime"
 import { useDict } from "@/i18n/hooks/useDict"
 import type { EmailStepFormProps } from "./types"
 
@@ -8,13 +7,11 @@ export function EmailStepForm({ onSubmit }: EmailStepFormProps) {
     const dict = useDict()
     const [email, setEmail] = useState("")
 
-    function handleSubmit(event: JSX.TargetedEvent<HTMLFormElement, Event>) {
-        event.preventDefault()
-        onSubmit(email.trim())
-    }
-
     return (
-        <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+        <form
+            className="flex flex-col gap-3"
+            onSubmit={(e) => e.preventDefault()}
+        >
             <input
                 type="email"
                 value={email}
@@ -31,6 +28,9 @@ export function EmailStepForm({ onSubmit }: EmailStepFormProps) {
             <Button
                 type="submit"
                 disabled={!email.trim()}
+                onClick={async () => {
+                    await onSubmit(email)
+                }}
                 className="bg-chat-accent text-chat-accent-foreground min-h-12 cursor-pointer rounded-xl text-sm font-medium disabled:cursor-not-allowed disabled:opacity-35"
             >
                 {dict.auth.emailStep.send}

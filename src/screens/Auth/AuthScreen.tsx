@@ -12,6 +12,7 @@ export function AuthScreen() {
 
     function handleEmailSubmit(nextEmail: string) {
         setEmail(nextEmail)
+
         setStep("verification")
     }
 
