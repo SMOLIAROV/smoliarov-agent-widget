@@ -3,3 +3,7 @@ export interface UseOtpInputOptions {
     onChange?: (code: string) => void
     onComplete?: (code: string) => void
 }
+
+export interface UseResendOtpOptions {
+    onResend: () => Promise<void>
+}
