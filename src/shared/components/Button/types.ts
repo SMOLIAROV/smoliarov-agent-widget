@@ -6,6 +6,7 @@ export interface ButtonProps {
         e: JSX.TargetedMouseEvent<HTMLButtonElement>,
     ) => void | Promise<void>
     disabled?: boolean
+    loading?: boolean
     className?: string
     type?: "button" | "submit" | "reset"
 }
