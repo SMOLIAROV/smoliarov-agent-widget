@@ -1,9 +1,19 @@
-import { Message } from "./components/Message"
+import type { MessageData } from "./components/types"
+import { MessageList } from "./components/MessageList"
+
+const messages: MessageData[] = [
+    {
+        id: "1",
+        role: "assistant",
+        content: "Hello, how can I help you?",
+    },
+    {
+        id: "2",
+        role: "user",
+        content: "I need help.",
+    },
+]
 
 export function ChatConversation() {
-    return (
-        <div className="chat-scrollbar flex flex-1 flex-col gap-4 overflow-y-auto px-4 py-5">
-            <Message />
-        </div>
-    )
+    return <MessageList messages={messages} isTyping={true} />
 }
