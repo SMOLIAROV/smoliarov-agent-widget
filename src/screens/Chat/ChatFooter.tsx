@@ -3,6 +3,7 @@ import { ArrowUp } from "lucide-preact"
 import { useChatComposer } from "./hooks/useChatComposer"
 import type { ChatFooterProps } from "./types"
 import { MAX_MESSAGE_LENGTH } from "./constants"
+import { ErrorBanner } from "@/shared/components/ErrorBanner/ErrorBanner"
 
 export function ChatFooter({ onSend }: ChatFooterProps) {
     const {
@@ -10,12 +11,14 @@ export function ChatFooter({ onSend }: ChatFooterProps) {
         messageLength,
         canSend,
         isSending,
+        error,
         handleInput,
         handleSend,
     } = useChatComposer({ onSend })
 
     return (
-        <div className="border-chat-border border-t p-3">
+        <div className="border-chat-border flex flex-col gap-2 border-t p-3">
+            {error && <ErrorBanner message={error} />}
             <form
                 onSubmit={handleSend}
                 className="border-chat-border bg-chat-surface focus-within:border-chat-accent/70 flex items-center gap-2 rounded-xl border p-1.5 pl-3"
@@ -29,7 +32,6 @@ export function ChatFooter({ onSend }: ChatFooterProps) {
                     className="text-chat-foreground placeholder:text-chat-muted min-w-0 flex-1 bg-transparent py-2 text-base outline-none sm:text-xs"
                 />
                 <Button
-                    onClick={handleSend}
                     disabled={!canSend}
                     loading={isSending}
                     type={"submit"}

@@ -5,6 +5,7 @@ import { useDict } from "@/i18n/hooks/useDict"
 import type { VerifyEmailStepProps } from "./types"
 import { VerifyEmailStepContent } from "./VerifyEmailStepContent"
 import { useOtpResend } from "../../hooks/useOtpResend"
+import { ErrorBanner } from "@/shared/components/ErrorBanner/ErrorBanner"
 
 export function VerifyEmailStep({
     email,
@@ -13,11 +14,14 @@ export function VerifyEmailStep({
 }: VerifyEmailStepProps) {
     const dict = useDict()
 
-    const { handleResend, secondsLeft, canResend } = useOtpResend({
+    const { handleResend, secondsLeft, canResend, error } = useOtpResend({
         onResend: async () => {
-            await console.log("click")
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+            console.log("Code resent to", email)
         },
     })
+
+    console.log("Test code: 123456")
 
     return (
         <>
@@ -25,7 +29,7 @@ export function VerifyEmailStep({
             <VerifyEmailStepContent email={email} />
             <VerifyEmailStepForm onSubmit={onSubmit} />
             <Button
-                className="text-chat-muted hover:text-chat-foreground disabled:text-chat-muted disabled:hover:text-chat-muted cursor-pointer text-xs underline underline-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                className="text-chat-muted hover:text-chat-foreground disabled:text-chat-muted disabled:hover:text-chat-muted flex cursor-pointer justify-center text-xs underline underline-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 onClick={handleResend}
                 disabled={!canResend}
             >
@@ -33,6 +37,8 @@ export function VerifyEmailStep({
                     ? `${dict.auth.emailVerificationStep.resend} (${secondsLeft})`
                     : dict.auth.emailVerificationStep.resend}
             </Button>
+
+            {error && <ErrorBanner message={error} />}
         </>
     )
 }

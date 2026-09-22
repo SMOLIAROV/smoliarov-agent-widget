@@ -10,9 +10,12 @@ export function ChatScreen() {
             <div className="flex min-h-0 flex-1 flex-col">
                 <ChatConversation />
                 <ChatFooter
-                    onSend={() =>
-                        new Promise((resolve) => setTimeout(resolve, 1000))
-                    }
+                    onSend={async () => {
+                        await new Promise((resolve) =>
+                            setTimeout(resolve, 1000),
+                        )
+                        throw new Error("test")
+                    }}
                 />
             </div>
         </>

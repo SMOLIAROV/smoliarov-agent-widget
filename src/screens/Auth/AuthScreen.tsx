@@ -1,29 +1,20 @@
 import { WidgetHeader } from "@/widget/WidgetHeader"
-import { useState } from "preact/hooks"
-import type { AuthStep } from "./types"
 import { VerifyEmailStep } from "./components/VerifyEmailStep/VerifyEmailStep"
 import { EmailStep } from "./components/EmailStep/EmailStep"
 import { useAuthFlow } from "@/flow/hooks/useAuthFlow"
+import { ErrorBanner } from "@/shared/components/ErrorBanner/ErrorBanner"
+import { useEmailStep } from "./hooks/useEmailStep"
 
 export function AuthScreen() {
-    const [step, setStep] = useState<AuthStep>("email")
-    const [email, setEmail] = useState("")
-    const { openStart, openChat } = useAuthFlow()
-
-    function handleEmailSubmit(nextEmail: string) {
-        setEmail(nextEmail)
-
-        setStep("verification")
-    }
-
-    function handleVerificationBack() {
-        setStep("email")
-    }
-
-    function handleVerificationSubmit(code: string) {
-        console.log({ email, code })
-        openChat()
-    }
+    const {
+        step,
+        email,
+        error,
+        handleEmailSubmit,
+        handleVerificationBack,
+        handleVerificationSubmit,
+    } = useEmailStep()
+    const { openStart } = useAuthFlow()
 
     return (
         <>
@@ -42,6 +33,7 @@ export function AuthScreen() {
                         onSubmit={handleVerificationSubmit}
                     />
                 )}
+                {error && <ErrorBanner message={error} />}
             </div>
         </>
     )

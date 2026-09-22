@@ -48,4 +48,15 @@ export const en = {
             },
         },
     },
+
+    errors: {
+        internal: "Internal error",
+
+        invalidEmail: "Please enter a valid email address.",
+        invalidVerificationCode: "Invalid verification code.",
+        resendFailed:
+            "Failed to resend the confirmation code. Please try again.",
+
+        sendMessageFailed: "Failed to send the message. Please try again.",
+    },
 }

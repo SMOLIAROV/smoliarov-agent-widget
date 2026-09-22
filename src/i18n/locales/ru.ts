@@ -50,4 +50,16 @@ export const ru: Dictionary = {
             },
         },
     },
+
+    errors: {
+        internal: "Внутренняя ошибка",
+
+        invalidEmail: "Пожалуйста, введите действительный адрес email.",
+        invalidVerificationCode: "Неверный код подтверждения.",
+        resendFailed:
+            "Не удалось повторно отправить код подтверждения. Попробуйте ещё раз.",
+
+        sendMessageFailed:
+            "Не удалось отправить сообщение. Попробуйте ещё раз.",
+    },
 }
