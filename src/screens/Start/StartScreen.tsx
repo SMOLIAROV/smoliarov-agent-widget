@@ -4,6 +4,7 @@ import { StartActions } from "./StartActions"
 import { useStartFlow } from "@/flow/hooks/useStartFlow"
 import type { JSX } from "preact/jsx-runtime"
 import { useState } from "preact/hooks"
+import { ScreenContent } from "@/shared/components/ScreenContent/ScreenContent"
 
 export function StartScreen() {
     const { openLogin, continueAnonymously } = useStartFlow()
@@ -18,7 +19,7 @@ export function StartScreen() {
         <>
             <WidgetHeader />
 
-            <div className="flex min-h-0 flex-1 flex-col justify-center gap-6 overflow-y-auto px-5 py-8 sm:px-8">
+            <ScreenContent>
                 <StartHero />
                 <StartActions
                     isPolicyAccepted={isPolicyAccepted}
@@ -26,7 +27,7 @@ export function StartScreen() {
                     onLogin={openLogin}
                     onContinueAnonymously={continueAnonymously}
                 />
-            </div>
+            </ScreenContent>
         </>
     )
 }

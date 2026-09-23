@@ -4,6 +4,7 @@ import { EmailStep } from "./components/EmailStep/EmailStep"
 import { useAuthFlow } from "@/flow/hooks/useAuthFlow"
 import { ErrorBanner } from "@/shared/components/ErrorBanner/ErrorBanner"
 import { useEmailStep } from "./hooks/useEmailStep"
+import { ScreenContent } from "@/shared/components/ScreenContent/ScreenContent"
 
 export function AuthScreen() {
     const {
@@ -20,7 +21,7 @@ export function AuthScreen() {
         <>
             <WidgetHeader />
 
-            <div className="flex min-h-0 flex-1 flex-col justify-center gap-6 overflow-y-auto px-5 py-8 sm:px-8">
+            <ScreenContent>
                 {step === "email" ? (
                     <EmailStep
                         onSubmit={handleEmailSubmit}
@@ -34,7 +35,7 @@ export function AuthScreen() {
                     />
                 )}
                 {error && <ErrorBanner message={error} />}
-            </div>
+            </ScreenContent>
         </>
     )
 }

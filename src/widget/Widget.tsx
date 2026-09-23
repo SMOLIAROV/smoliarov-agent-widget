@@ -8,13 +8,15 @@ export function Widget() {
 
     return (
         <WidgetProvider close={() => setIsOpen(false)}>
-            <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col items-center gap-3 pb-[env(safe-area-inset-bottom)] sm:inset-x-auto sm:right-5 sm:bottom-5 sm:items-end sm:pb-0 md:right-7 md:bottom-7">
+            <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col items-center gap-3 pb-[calc(env(safe-area-inset-bottom)+1rem)] sm:inset-x-auto sm:right-5 sm:bottom-5 sm:items-end sm:pb-0 md:right-7 md:bottom-7">
                 {isOpen && <WidgetPanel />}
 
-                <WidgetButton
-                    isOpen={isOpen}
-                    onClick={() => setIsOpen((value) => !value)}
-                />
+                <div className="mr-3 self-end sm:mr-0">
+                    <WidgetButton
+                        isOpen={isOpen}
+                        onClick={() => setIsOpen((value) => !value)}
+                    />
+                </div>
             </div>
         </WidgetProvider>
     )
