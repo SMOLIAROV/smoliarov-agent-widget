@@ -22,7 +22,10 @@ export function WidgetHeader({ children }: WidgetHeaderProps) {
                         </div>
 
                         <div>
-                            <p className="text-chat-foreground text-sm font-medium">
+                            <p
+                                id="widget-panel-title"
+                                className="text-chat-foreground text-sm font-medium"
+                            >
                                 {dict.header.title}
                             </p>
                             <p className="text-chat-muted font-mono text-[10px] tracking-[0.16em] uppercase">
@@ -35,6 +38,7 @@ export function WidgetHeader({ children }: WidgetHeaderProps) {
 
             <Button
                 onClick={close}
+                ariaLabel={dict.common.closeChat}
                 className="text-chat-muted cursor-pointer rounded-md p-2"
             >
                 <X />

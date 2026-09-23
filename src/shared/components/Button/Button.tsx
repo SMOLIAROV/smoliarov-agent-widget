@@ -7,6 +7,10 @@ export function Button({
     onClick,
     disabled = false,
     loading = false,
+    ariaLabel,
+    ariaExpanded,
+    ariaControls,
+    ref,
     className,
     type = "button",
 }: ButtonProps) {
@@ -15,10 +19,13 @@ export function Button({
 
     return (
         <button
+            ref={ref}
             onClick={handleClick}
             disabled={disabled || isBusy}
             aria-busy={isBusy}
-            aria-label={isBusy ? "Loading" : undefined}
+            aria-label={isBusy ? "Loading" : ariaLabel}
+            aria-expanded={ariaExpanded}
+            aria-controls={ariaControls}
             className={className}
             type={type}
         >

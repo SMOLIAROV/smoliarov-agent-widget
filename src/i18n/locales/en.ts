@@ -1,6 +1,8 @@
 export const en = {
     common: {
         back: "Back",
+        openChat: "Open chat",
+        closeChat: "Close chat",
     },
 
     header: {

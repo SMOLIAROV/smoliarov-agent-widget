@@ -1,10 +1,26 @@
-import { useState } from "preact/hooks"
+import { useEffect, useRef, useState } from "preact/hooks"
 import { WidgetPanel } from "./WidgetPanel"
 import { WidgetButton } from "./WidgetButton"
 import { WidgetProvider } from "./WidgetProvider"
+import { useEscapeKey } from "@/shared/hooks/useEscapeKey"
 
 export function Widget() {
     const [isOpen, setIsOpen] = useState(false)
+    const triggerRef = useRef<HTMLButtonElement | null>(null)
+    const wasOpenRef = useRef(false)
+
+    useEffect(() => {
+        if (wasOpenRef.current && !isOpen) {
+            triggerRef.current?.focus()
+        }
+
+        wasOpenRef.current = isOpen
+    }, [isOpen])
+
+    useEscapeKey({
+        enabled: isOpen,
+        onEscape: () => setIsOpen(false),
+    })
 
     return (
         <WidgetProvider close={() => setIsOpen(false)}>
@@ -14,6 +30,7 @@ export function Widget() {
                 <div className="mr-3 self-end sm:mr-0">
                     <WidgetButton
                         isOpen={isOpen}
+                        triggerRef={triggerRef}
                         onClick={() => setIsOpen((value) => !value)}
                     />
                 </div>

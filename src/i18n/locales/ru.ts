@@ -3,6 +3,8 @@ import type { Dictionary } from "../types"
 export const ru: Dictionary = {
     common: {
         back: "Назад",
+        openChat: "Открыть чат",
+        closeChat: "Закрыть чат",
     },
 
     header: {

@@ -1,8 +1,9 @@
-import type { ComponentChildren } from "preact"
+import type { ComponentChildren, RefObject } from "preact"
 
 export interface WidgetButtonProps {
     isOpen: boolean
     onClick: () => void
+    triggerRef?: RefObject<HTMLButtonElement>
 }
 
 export interface WidgetHeaderProps {

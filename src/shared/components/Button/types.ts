@@ -1,4 +1,4 @@
-import type { ComponentChildren, JSX } from "preact"
+import type { ComponentChildren, JSX, Ref } from "preact"
 
 export interface ButtonProps {
     children: ComponentChildren
@@ -7,6 +7,10 @@ export interface ButtonProps {
     ) => void | Promise<void>
     disabled?: boolean
     loading?: boolean
+    ariaLabel?: string
+    ariaExpanded?: boolean
+    ariaControls?: string
+    ref?: Ref<HTMLButtonElement>
     className?: string
     type?: "button" | "submit" | "reset"
 }
