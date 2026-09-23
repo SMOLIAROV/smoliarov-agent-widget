@@ -3,6 +3,7 @@ export const en = {
         back: "Back",
         openChat: "Open chat",
         closeChat: "Close chat",
+        loading: "Loading",
     },
 
     header: {
@@ -48,6 +49,16 @@ export const en = {
                 label: (index: number, length: number) =>
                     `Digit ${index + 1} of ${length}`,
             },
+        },
+    },
+
+    chat: {
+        input: {
+            placeholder: "Write a message...",
+        },
+        messages: {
+            assistantGreeting: "Hello, how can I help you?",
+            userExample: "I need help.",
         },
     },
 

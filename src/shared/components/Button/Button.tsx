@@ -1,6 +1,7 @@
 import type { ButtonProps } from "./types"
 import { useButtonLoading } from "./useButtonLoading"
 import { LoaderCircle } from "lucide-preact"
+import { useDict } from "@/i18n/hooks/useDict"
 
 export function Button({
     children,
@@ -14,6 +15,7 @@ export function Button({
     className,
     type = "button",
 }: ButtonProps) {
+    const dict = useDict()
     const { isLoading, handleClick } = useButtonLoading(onClick)
     const isBusy = loading || isLoading
 
@@ -23,7 +25,7 @@ export function Button({
             onClick={handleClick}
             disabled={disabled || isBusy}
             aria-busy={isBusy}
-            aria-label={isBusy ? "Loading" : ariaLabel}
+            aria-label={isBusy ? dict.common.loading : ariaLabel}
             aria-expanded={ariaExpanded}
             aria-controls={ariaControls}
             className={className}

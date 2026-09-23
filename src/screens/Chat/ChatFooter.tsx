@@ -4,8 +4,10 @@ import { useChatComposer } from "./hooks/useChatComposer"
 import type { ChatFooterProps } from "./types"
 import { MAX_MESSAGE_LENGTH } from "./constants"
 import { ErrorBanner } from "@/shared/components/ErrorBanner/ErrorBanner"
+import { useDict } from "@/i18n/hooks/useDict"
 
 export function ChatFooter({ onSend }: ChatFooterProps) {
+    const dict = useDict()
     const {
         message,
         messageLength,
@@ -28,7 +30,7 @@ export function ChatFooter({ onSend }: ChatFooterProps) {
                     value={message}
                     onInput={handleInput}
                     maxLength={MAX_MESSAGE_LENGTH}
-                    placeholder="Write a message..."
+                    placeholder={dict.chat.input.placeholder}
                     className="text-chat-foreground placeholder:text-chat-muted min-w-0 flex-1 bg-transparent py-2 text-base outline-none sm:text-xs"
                 />
                 <Button

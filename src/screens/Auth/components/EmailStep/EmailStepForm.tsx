@@ -11,6 +11,7 @@ export function EmailStepForm({ onSubmit }: EmailStepFormProps) {
         <form
             className="flex flex-col gap-3"
             onSubmit={(e) => e.preventDefault()}
+            noValidate
         >
             <input
                 type="email"
@@ -20,7 +21,6 @@ export function EmailStepForm({ onSubmit }: EmailStepFormProps) {
                 }}
                 required
                 placeholder={dict.auth.emailStep.input.placeholder}
-                autoComplete="email"
                 aria-label={dict.auth.emailStep.input.label}
                 className="border-chat-border bg-chat-surface text-chat-foreground placeholder:text-chat-muted focus:border-chat-accent/70 min-h-12 rounded-xl border px-4 text-base outline-none"
             />

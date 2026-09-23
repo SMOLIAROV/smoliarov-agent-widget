@@ -5,6 +5,7 @@ export const ru: Dictionary = {
         back: "Назад",
         openChat: "Открыть чат",
         closeChat: "Закрыть чат",
+        loading: "Загрузка",
     },
 
     header: {
@@ -50,6 +51,16 @@ export const ru: Dictionary = {
                 label: (index: number, length: number) =>
                     `Цифра ${index + 1} из ${length}`,
             },
+        },
+    },
+
+    chat: {
+        input: {
+            placeholder: "Напишите сообщение...",
+        },
+        messages: {
+            assistantGreeting: "Здравствуйте, чем я могу помочь?",
+            userExample: "Мне нужна помощь.",
         },
     },
 
