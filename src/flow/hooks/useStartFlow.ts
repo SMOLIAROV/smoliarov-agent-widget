@@ -1,5 +1,6 @@
 import { useFlow } from "./useFlow"
 import { FLOW_SCREEN } from "../constants"
+import { authenticateAnonymous } from "../../api/services/auth"
 
 export function useStartFlow() {
     const { navigate } = useFlow()
@@ -8,7 +9,8 @@ export function useStartFlow() {
         navigate(FLOW_SCREEN.AUTH)
     }
 
-    function continueAnonymously() {
+    async function continueAnonymously() {
+        await authenticateAnonymous()
         navigate(FLOW_SCREEN.CHAT)
     }
 
