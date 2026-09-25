@@ -1,7 +1,11 @@
 import { authenticateAnonymous as authenticateAnonymousRequest } from "../endpoints/authenticateAnonymous"
 import { validateSession as validateSessionRequest } from "../endpoints/validateSession"
 import { client } from "../client"
-import { clearSessionToken, getSessionToken, saveSessionToken } from "../session"
+import {
+    clearSessionToken,
+    getSessionToken,
+    saveSessionToken,
+} from "../session"
 
 export async function authenticateAnonymous() {
     const response = await authenticateAnonymousRequest(client)

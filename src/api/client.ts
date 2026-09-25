@@ -2,11 +2,7 @@ import type { HttpClient } from "./types"
 
 export function createClient(baseUrl: string): HttpClient {
     return {
-        async post<T>(
-            path: string,
-            body: unknown,
-            token?: string,
-        ): Promise<T> {
+        async post<T>(path: string, body: unknown, token?: string): Promise<T> {
             const headers = new Headers({
                 "Content-Type": "application/json",
             })
@@ -30,6 +26,4 @@ export function createClient(baseUrl: string): HttpClient {
     }
 }
 
-export const client = createClient(
-    import.meta.env.VITE_API_URL,
-)
+export const client = createClient(import.meta.env.VITE_API_URL)
